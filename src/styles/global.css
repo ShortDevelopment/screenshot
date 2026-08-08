@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+:root {
+    --border-color: #757575;
+    /* 17171733; */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@theme {
+    --shadow-window-active: 0px 2px 21px 0px rgba(0, 0, 0, 0.22), 0px 32px 64px 0px rgba(0, 0, 0, 0.28);
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --background-color: #F3F3F3FF;
+        --inactive-background-color: #F3F3F3FF;
+        --foreground-color: #000000FF;
+        --inactive-foreground-color: #9B9B9BFF;
+        --button-background-color: #F3F3F3FF;
+        --button-inactive-background-color: #F3F3F3FF;
+        --button-foreground-color: #000000FF;
+        --button-inactive-foreground-color: #9B9B9BFF;
+        --button-hover-background-color: #5A5A5A65;
+        --button-hover-background-color-mica: #00000006;
+        --button-hover-foreground-color: #000000FF;
+        --button-pressed-background-color: #979797A1;
+        --button-pressed-background-color-mica: #00000000;
+        --button-pressed-foreground-color: #5F5F5FFF;
+
+        --card-bg-color: #FFFFFFB2;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #202020FF;
+        --inactive-background-color: #202020FF;
+        --foreground-color: #FFFFFFFF;
+        --inactive-foreground-color: #737373FF;
+        --button-background-color: #202020FF;
+        --button-inactive-background-color: #202020FF;
+        --button-foreground-color: #FFFFFFFF;
+        --button-inactive-foreground-color: #737373FF;
+        --button-hover-background-color: #FFFFFFFF;
+        --button-hover-background-color-mica: #FFFFFF0B;
+        --button-hover-foreground-color: #FFFFFFFF;
+        --button-pressed-background-color: #C7C7C748;
+        --button-pressed-background-color-mica: #00000000;
+        --button-pressed-foreground-color: #A7A7A7FF;
+
+        --card-bg-color: #FFFFFF0D;
+    }
+}
+
+html {
+    background: url(https://cover.sli.dev) var(--background-color);
+    color: var(--foreground-color);
+}

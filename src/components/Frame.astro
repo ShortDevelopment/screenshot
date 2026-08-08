@@ -1,0 +1,15 @@
+---
+import Mica from "./Mica.astro";
+import TitleBar from "./TitleBar.astro";
+---
+
+<div
+    class="relative rounded-lg border border-(--border-color) box-border grid grid-rows-[auto_1fr] overflow-clip shadow-window-active"
+    style="backdrop-filter: url(#MicaBrush);"
+>
+    <Mica />
+    <TitleBar />
+    <div aria-label="ClientArea">
+        <slot />
+    </div>
+</div>

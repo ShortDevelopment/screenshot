@@ -1,0 +1,21 @@
+---
+interface Props {
+    type: "minimize" | "maximize" | "close";
+}
+const { type } = Astro.props;
+const src = (
+    {
+        minimize: "/icons/9871.png",
+        maximize: "/icons/9841.png",
+        close: "/icons/9861.png",
+    } satisfies Record<Props["type"], string>
+)[type];
+---
+
+<div class="w-11.5 grid place-items-center">
+    <div
+        class="w-3 h-3 bg-(--button-foreground-color) mask-contain mask-no-repeat mask-center"
+        style={`mask-image: url(${src});`}
+    >
+    </div>
+</div>

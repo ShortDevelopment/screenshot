@@ -1,0 +1,12 @@
+---
+import TitleBarButton from "./TitleBarButton.astro";
+---
+
+<div class="h-8 pl-4 flex" aria-label="TitleBar">
+    <div class="grow grid items-center text-[12px]" contenteditable="true">
+        Title
+    </div>
+    <TitleBarButton type="minimize" />
+    <TitleBarButton type="maximize" />
+    <TitleBarButton type="close" />
+</div>

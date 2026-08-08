@@ -1,0 +1,68 @@
+<svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="absolute w-full h-full top-0 left-0 -z-10"
+>
+    <style>
+        :root {
+            --mica-tint-color-dark: rgb(32, 32, 32);
+            --mica-tint-opacity-dark: 0.8;
+
+            --mica-tint-color-light: rgb(243, 243, 243);
+            --mica-tint-opacity-light: 0.5;
+
+            --mica-luminosity-opacity: 1;
+        }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --mica-tint-color: var(--mica-tint-color-light);
+                --mica-tint-opacity: var(--mica-tint-opacity-light);
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --mica-tint-color: var(--mica-tint-color-dark);
+                --mica-tint-opacity: var(--mica-tint-opacity-dark);
+            }
+        }
+    </style>
+    <defs>
+        <filter id="MicaBrush" color-interpolation-filters="sRGB">
+            <!-- ICompositorWithBlurredWallpaperBackdropBrush -->
+            <feGaussianBlur
+                in="SourceGraphic"
+                stdDeviation="30"
+                edgeMode="wrap"
+                result="blurredWallpaperBackdrop"></feGaussianBlur>
+
+            <!-- Tint Color -->
+            <feFlood
+                flood-color="var(--mica-tint-color)"
+                flood-opacity="var(--mica-tint-opacity)"
+                result="tintColorEffect"></feFlood>
+
+            <!-- Luminosity Color -->
+            <feFlood
+                flood-color="var(--mica-tint-color)"
+                flood-opacity="var(--mica-luminosity-opacity)"
+                result="luminosityColorEffect"></feFlood>
+
+            <!-- Luminosity Blend -->
+            <feBlend
+                in="luminosityColorEffect"
+                in2="blurredWallpaperBackdrop"
+                mode="luminosity"
+                result="luminosityBlendEffect"></feBlend>
+
+            <feBlend
+                in="tintColorEffect"
+                in2="luminosityBlendEffect"
+                mode="color"
+                result="colorBlendEffect"></feBlend>
+
+            <feComposite in="colorBlendEffect" in2="SourceAlpha" operator="in"
+            ></feComposite>
+        </filter>
+    </defs>
+</svg>
